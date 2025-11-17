@@ -1,0 +1,99 @@
+# Theming
+font: FiraCode Nerd Font Mono 12
+background: "#282828d0"
+color: "#fbf1c7"
+border: "#8ec07c"
+separator: " ➜ "
+border_width: 2
+corner_r: 10
+padding: 15
+rows_per_column: 5
+column_padding: 25
+
+# Anchor and margin
+anchor: center
+
+# Permits key bindings that conflict with compositor key bindings.
+inhibit_compositor_keyboard_shortcuts: false
+ 
+# Try to guess the correct keyboard layout to use.
+auto_kbd_layout: true
+
+menu:
+  - key: w
+    desc: Windows
+    submenu:
+      - key: f
+        desc: Focus Window
+        cmd: qatpipe "windows-open"
+      - key: u
+        desc: Focus Urgent
+        cmd: niri-window-focus-urgent
+      - key: b
+        desc: Bring Window Here
+        cmd: niri-window-bring
+        
+  - key: s
+    desc: Workspaces
+    submenu:
+      - key: g
+        desc: Goto Workspace
+        cmd: qatpipe "workspaces-select goto"
+      - key: b
+        desc: Bring Workspace
+        cmd: qatpipe "workspaces-select bring"
+      - key: s
+        desc: Send to Workspace
+        cmd: qatpipe "workspaces-select send"
+      - key: n
+        desc: New Workspace
+        cmd: niri-workspace-create-terminal
+      - key: r
+        desc: Rename Workspace
+        cmd: niri-workspace-rename-terminal
+        
+  - key: m
+    desc: System Menu
+    cmd: qatpipe "menu-open"
+    
+  - key: a
+    desc: Applications
+    submenu:
+      - key: f
+        desc: Firefox
+        cmd: firefox
+      - key: k
+        desc: Kitty
+        cmd: kitty-workspace-launch
+      - key: r
+        desc: Rofi
+        cmd: rofi -show drun
+        
+  - key: n
+    desc: Niri Actions
+    submenu:
+      - key: f
+        desc: Fullscreen
+        cmd: niri msg action fullscreen-window
+      - key: t
+        desc: Toggle Floating
+        cmd: niri msg action toggle-window-floating
+      - key: m
+        desc: Maximize Column
+        cmd: niri msg action maximize-column
+      - key: c
+        desc: Close Window
+        cmd: niri msg action close-window
+        
+  - key: p
+    desc: Screenshot
+    submenu:
+      - key: s
+        desc: Screen
+        cmd: niri msg action screenshot-screen
+      - key: w
+        desc: Window
+        cmd: niri msg action screenshot-window
+      - key: a
+        desc: Area (Interactive)
+        cmd: niri msg action screenshot
