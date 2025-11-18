@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Toggle wlr-which-key on/off
+
+pid=$(pgrep -x wlr-which-key)
+
+if [ -n "$pid" ]; then
+    # Process is running, kill it
+    kill "$pid"
+    # Optional: wait for process to actually stop
+    sleep 0.2
+else
+    # Process not running, launch it
+    wlr-which-key >/dev/null 2>&1 &
+    disown
+fi
