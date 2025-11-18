@@ -9,7 +9,7 @@ if [ -n "$pid" ]; then
     # Optional: wait for process to actually stop
     sleep 0.2
 else
-    # Process not running, launch it
-    wlr-which-key >/dev/null 2>&1 &
+    # Process not running, launch it with any provided arguments
+    wlr-which-key "$@" >/dev/null 2>&1 &
     disown
 fi
