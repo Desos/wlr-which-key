@@ -26,43 +26,43 @@ menu:
       - key: "0"
         desc: 100%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 100% && brightnessctl -q -e -d card1-eDP-2-backlight set 100%'"
+        cmd: set-brightness 0
       - key: "1"
         desc: 19%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 19% && brightnessctl -q -e -d card1-eDP-2-backlight set 19%'"
+        cmd: set-brightness 1
       - key: "2"
         desc: 28%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 28% && brightnessctl -q -e -d card1-eDP-2-backlight set 28%'"
+        cmd: set-brightness 2
       - key: "3"
         desc: 37%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 37% && brightnessctl -q -e -d card1-eDP-2-backlight set 37%'"
+        cmd: set-brightness 3
       - key: "4"
         desc: 46%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 46% && brightnessctl -q -e -d card1-eDP-2-backlight set 46%'"
+        cmd: set-brightness 4
       - key: "5"
         desc: 55%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 55% && brightnessctl -q -e -d card1-eDP-2-backlight set 55%'"
+        cmd: set-brightness 5
       - key: "6"
         desc: 63%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 63% && brightnessctl -q -e -d card1-eDP-2-backlight set 63%'"
+        cmd: set-brightness 6
       - key: "7"
         desc: 72%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 72% && brightnessctl -q -e -d card1-eDP-2-backlight set 72%'"
+        cmd: set-brightness 7
       - key: "8"
         desc: 81%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 81% && brightnessctl -q -e -d card1-eDP-2-backlight set 81%'"
+        cmd: set-brightness 8
       - key: "9"
         desc: 90%
         keep_open: true
-        cmd: "sh -c 'brightnessctl -q -e -d intel_backlight set 90% && brightnessctl -q -e -d card1-eDP-2-backlight set 90%'"
+        cmd: set-brightness 9
         
   - key: c
     desc: Color Temperature
@@ -70,40 +70,40 @@ menu:
       - key: "0"
         desc: Reset
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -x &'"
+        cmd: set-temperature 0
       - key: "1"
         desc: 1500K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 1500 &'"
+        cmd: set-temperature 1
       - key: "2"
         desc: 2050K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 2050 &'"
+        cmd: set-temperature 2
       - key: "3"
         desc: 2600K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 2600 &'"
+        cmd: set-temperature 3
       - key: "4"
         desc: 3150K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 3150 &'"
+        cmd: set-temperature 4
       - key: "5"
         desc: 3700K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 3700 &'"
+        cmd: set-temperature 5
       - key: "6"
         desc: 4250K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 4250 &'"
+        cmd: set-temperature 6
       - key: "7"
         desc: 4800K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 4800 &'"
+        cmd: set-temperature 7
       - key: "8"
         desc: 5350K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 5350 &'"
+        cmd: set-temperature 8
       - key: "9"
         desc: 5900K
         keep_open: true
-        cmd: "sh -c 'pkill gammastep 2>/dev/null; gammastep -P -O 5900 &'"
+        cmd: set-temperature 9

@@ -1,0 +1,20 @@
+#!/bin/bash
+# Set brightness level based on 0-9 input
+
+case "$1" in
+    0) LEVEL="100%" ;;
+    1) LEVEL="19%" ;;
+    2) LEVEL="28%" ;;
+    3) LEVEL="37%" ;;
+    4) LEVEL="46%" ;;
+    5) LEVEL="55%" ;;
+    6) LEVEL="63%" ;;
+    7) LEVEL="72%" ;;
+    8) LEVEL="81%" ;;
+    9) LEVEL="90%" ;;
+    *) echo "Usage: $0 [0-9]"; exit 1 ;;
+esac
+
+# Set both screens to same brightness
+brightnessctl -q -e -d intel_backlight set "$LEVEL"
+brightnessctl -q -e -d card1-eDP-2-backlight set "$LEVEL"

@@ -1,0 +1,26 @@
+#!/bin/bash
+# Set color temperature based on 0-9 input
+
+case "$1" in
+    0) 
+        # Reset to neutral
+        pkill gammastep 2>/dev/null
+        gammastep -x &
+        ;;
+    1) TEMP="1500" ;;
+    2) TEMP="2050" ;;
+    3) TEMP="2600" ;;
+    4) TEMP="3150" ;;
+    5) TEMP="3700" ;;
+    6) TEMP="4250" ;;
+    7) TEMP="4800" ;;
+    8) TEMP="5350" ;;
+    9) TEMP="5900" ;;
+    *) echo "Usage: $0 [0-9]"; exit 1 ;;
+esac
+
+# Apply temperature (if not reset)
+if [ "$1" != "0" ]; then
+    pkill gammastep 2>/dev/null
+    gammastep -P -O "$TEMP" &
+fi
