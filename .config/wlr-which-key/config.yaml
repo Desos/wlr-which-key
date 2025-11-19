@@ -1,8 +1,8 @@
-# Theming
+# Theming - Catppuccin Mocha
 font: FiraCode Nerd Font Mono 12
-background: "#282828d0"
-color: "#fbf1c7"
-border: "#8ec07c"
+background: "#1e1e2ee6"
+color: "#cdd6f4"
+border: "#89b4fa"
 separator: " ➜ "
 border_width: 2
 corner_r: 10
