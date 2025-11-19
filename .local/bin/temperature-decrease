@@ -1,29 +1,15 @@
 #!/bin/bash
-# Decrease color temperature (warmer)
-STEPS=(6500 6000 5500 5000 4500 4000 3500 3000)
+# Decrease color temperature (warmer) by 10%
 
 # Query current temp from running gammastep
-CURRENT=$(gammastep -p 2>/dev/null | grep -oP '(?<=temperature: )[0-9]+' | head -1)
+CURRENT=$(gammastep -p 2>/dev/null | grep -oP '(?<=Colour temperature: )[0-9]+' | head -1)
 [ -z "$CURRENT" ] && CURRENT=6500
 
-# Find current position and move warmer (higher index)
-NEW_TEMP=${STEPS[-1]}  # Default to warmest
-for i in "${!STEPS[@]}"; do
-    if [ "$CURRENT" -eq "${STEPS[$i]}" ]; then
-        # Exact match - move to next warmer
-        NEXT_INDEX=$((i + 1))
-        if [ $NEXT_INDEX -lt ${#STEPS[@]} ]; then
-            NEW_TEMP=${STEPS[$NEXT_INDEX]}
-        else
-            NEW_TEMP=${STEPS[$i]}  # Stay at warmest
-        fi
-        break
-    elif [ "$CURRENT" -gt "${STEPS[$i]}" ]; then
-        # Between steps - snap to current step
-        NEW_TEMP=${STEPS[$i]}
-        break
-    fi
-done
+# Decrease by 10% (multiply by 0.9)
+NEW_TEMP=$(echo "$CURRENT * 0.9" | bc | cut -d. -f1)
+
+# Enforce minimum of 2000K
+[ $NEW_TEMP -lt 2000 ] && NEW_TEMP=2000
 
 # Apply new temperature
 pkill gammastep 2>/dev/null

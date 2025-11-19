@@ -1,28 +1,15 @@
 #!/bin/bash
-# Increase color temperature (cooler)
-STEPS=(6500 6000 5500 5000 4500 4000 3500 3000)
+# Increase color temperature (cooler) by 10%
 
 # Query current temp from running gammastep
-CURRENT=$(gammastep -p 2>/dev/null | grep -oP '(?<=temperature: )[0-9]+' | head -1)
+CURRENT=$(gammastep -p 2>/dev/null | grep -oP '(?<=Colour temperature: )[0-9]+' | head -1)
 [ -z "$CURRENT" ] && CURRENT=6500
 
-# Find current position and move cooler (lower index)
-NEW_TEMP=${STEPS[0]}  # Default to coolest (neutral)
-for i in "${!STEPS[@]}"; do
-    if [ "$CURRENT" -eq "${STEPS[$i]}" ]; then
-        # Exact match - move to next cooler
-        if [ $i -gt 0 ]; then
-            NEW_TEMP=${STEPS[$((i - 1))]}
-        else
-            NEW_TEMP=${STEPS[0]}  # Stay at coolest
-        fi
-        break
-    elif [ "$CURRENT" -gt "${STEPS[$i]}" ]; then
-        # Between steps - snap to current step
-        NEW_TEMP=${STEPS[$i]}
-        break
-    fi
-done
+# Increase by 10% (divide by 0.9)
+NEW_TEMP=$(echo "$CURRENT / 0.9" | bc | cut -d. -f1)
+
+# Enforce maximum of 6500K
+[ $NEW_TEMP -gt 6500 ] && NEW_TEMP=6500
 
 # Apply new temperature
 pkill gammastep 2>/dev/null
