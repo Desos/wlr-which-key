@@ -1,0 +1,4 @@
+#!/bin/bash
+# Reset color temperature to neutral (remove adjustment)
+pkill gammastep 2>/dev/null
+gammastep -x &

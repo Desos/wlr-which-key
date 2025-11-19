@@ -11,8 +11,14 @@ Located in `niri/.local/bin/`:
 
 - `niri-window-focus-urgent` - Focus window marked urgent
 - `niri-window-bring` - Bring window to current workspace
-- `niri-workspace-create-terminal` - Create new workspace interactively
-- `niri-workspace-rename-terminal` - Rename workspace interactively
+
+### QAT Workspace Commands
+Via `qatpipe` to quick-access-term picker:
+
+- `qatpipe "workspaces-select goto"` - Navigate to workspace
+- `qatpipe "workspaces-select bring"` - Move window to workspace and follow
+- `qatpipe "workspaces-select send"` - Move window to workspace, stay here
+- `qatpipe "workspaces-select touch"` - Manifest workspace without focusing
 
 ### Native niri msg Commands
 - `niri msg action fullscreen-window` - Toggle fullscreen
@@ -33,12 +39,20 @@ These commands are provided by the `niri` submodule in Environment. When `niri` 
 
 ### Menu Categories Using Niri
 
-1. **Windows → Focus Urgent** - `niri-window-focus-urgent`
-2. **Windows → Bring Window Here** - `niri-window-bring`
-3. **Workspaces → New Workspace** - `niri-workspace-create-terminal`
-4. **Workspaces → Rename Workspace** - `niri-workspace-rename-terminal`
-5. **Niri Actions** - All native `niri msg action` commands
-6. **Screenshot** - All screenshot commands
+#### Windows Menu
+- **Focus Window** - `qatpipe "windows-open"` (opens window picker)
+- **Focus Urgent** - `niri-window-focus-urgent`
+- **Bring Window Here** - `niri-window-bring`
+- **Send to Workspace** - `qatpipe "workspaces-select send"` (move window, stay here)
+- **Move to Workspace** - `qatpipe "workspaces-select bring"` (move window, follow it)
+
+#### Workspaces Menu
+- **Goto Workspace** - `qatpipe "workspaces-select goto"` (navigate to workspace)
+- **Touch Workspace** - `qatpipe "workspaces-select touch"` (manifest without focusing)
+
+#### Other Menus
+- **Niri Actions** - All native `niri msg action` commands
+- **Screenshot** - All screenshot commands
 
 ## Relationship to Niri Hotkey Overlay
 

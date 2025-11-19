@@ -1,0 +1,4 @@
+#!/bin/bash
+# Increase brightness by 10% on both screens
+brightnessctl -q -e -d intel_backlight set +10%
+brightnessctl -q -e -d card1-eDP-2-backlight set +10%
