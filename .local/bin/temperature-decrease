@@ -1,18 +1,17 @@
 #!/bin/bash
 # Decrease color temperature (warmer) by 10%
 
-# Query current temp from running gammastep
-CURRENT=$(gammastep -p 2>/dev/null | grep -oP '(?<=Colour temperature: )[0-9]+' | head -1)
+# Query current temp from running gammastep process
+CURRENT=$(pgrep -a gammastep | grep -oP '(?<=-O )[0-9]+')
 [ -z "$CURRENT" ] && CURRENT=6500
-echo $CURRENT
 
 # Decrease by 10% (multiply by 0.9)
 NEW_TEMP=$(echo "$CURRENT * 0.9" | bc | cut -d. -f1)
-echo $NEW_TEMP
 
 # Enforce minimum of 2000K
 [ $NEW_TEMP -lt 2000 ] && NEW_TEMP=2000
 
 # Apply new temperature
 pkill gammastep 2>/dev/null
-gammastep -O $NEW_TEMP &
+sleep 0.1
+gammastep -P -O $NEW_TEMP &
