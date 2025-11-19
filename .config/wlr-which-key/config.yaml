@@ -21,24 +21,22 @@ auto_kbd_layout: true
 
 menu:    
   - key: b
-    desc: Brightness
-    submenu:
-      - key: b
-        desc: Decrease
-        cmd: brightness-decrease
-      - key: B
-        desc: Increase
-        cmd: brightness-increase
-        
-  - key: t
-    desc: Color Temperature
-    submenu:
-      - key: t
-        desc: Decrease (Warmer)
-        cmd: temperature-decrease
-      - key: T
-        desc: Increase (Cooler)
-        cmd: temperature-increase
-      - key: r
-        desc: Reset
-        cmd: temperature-reset
+    desc: Decrease
+    keep_open: true
+    cmd: brightness-decrease
+  - key: B
+    desc: Increase
+    cmd: brightness-increase
+    keep_open: true
+  - key: c
+    desc: Decrease (Warmer)
+    cmd: temperature-decrease
+    keep_open: true
+  - key: C
+    desc: Increase (Cooler)
+    cmd: temperature-increase
+    keep_open: true
+  - key: Alt+c
+    desc: Reset
+    cmd: temperature-reset
+    keep_open: true
