@@ -20,8 +20,8 @@ inhibit_compositor_keyboard_shortcuts: false
 auto_kbd_layout: true
 
 menu:    
-  - key: b
-    desc: Brightness
+  - key: l
+    desc: Luminance
     submenu:
       - key: "0"
         desc: 100%
@@ -64,8 +64,8 @@ menu:
         keep_open: true
         cmd: set-brightness 9
         
-  - key: c
-    desc: Color Temperature
+  - key: h
+    desc: Hue
     submenu:
       - key: "0"
         desc: Reset
@@ -107,3 +107,47 @@ menu:
         desc: 5900K
         keep_open: true
         cmd: set-temperature 9
+
+  - key: b
+    desc: Both
+    submenu:
+      - key: "0"
+        desc: 100% / Reset
+        keep_open: true
+        cmd: set-both 0
+      - key: "1"
+        desc: 19% / 1500K
+        keep_open: true
+        cmd: set-both 1
+      - key: "2"
+        desc: 28% / 2050K
+        keep_open: true
+        cmd: set-both 2
+      - key: "3"
+        desc: 37% / 2600K
+        keep_open: true
+        cmd: set-both 3
+      - key: "4"
+        desc: 46% / 3150K
+        keep_open: true
+        cmd: set-both 4
+      - key: "5"
+        desc: 55% / 3700K
+        keep_open: true
+        cmd: set-both 5
+      - key: "6"
+        desc: 63% / 4250K
+        keep_open: true
+        cmd: set-both 6
+      - key: "7"
+        desc: 72% / 4800K
+        keep_open: true
+        cmd: set-both 7
+      - key: "8"
+        desc: 81% / 5350K
+        keep_open: true
+        cmd: set-both 8
+      - key: "9"
+        desc: 90% / 5900K
+        keep_open: true
+        cmd: set-both 9

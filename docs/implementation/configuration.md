@@ -29,6 +29,20 @@
 5. **Niri Actions (n)** - Window management
 6. **Screenshot (p)** - Capture operations
 
+### Display Settings
+Three complementary options for screen adjustment:
+
+1. **Luminance (l)** - Brightness only (0-9 levels)
+2. **Hue (h)** - Color temperature only (0-9 levels)
+3. **Both (b)** - Adjusts luminance and hue simultaneously
+
+**Design rationale**:
+- **Mnemonic keys**: l=luminance, h=hue, b=both
+- **Parallel execution**: `set-both` runs brightness and temperature adjustments concurrently (independent systems)
+- **Efficiency**: Common case (adjusting both) requires same keypresses as individual adjustments
+- **Flexibility**: Can still adjust independently when needed
+- **Consistent interface**: All three use 0-9 number scheme with `keep_open: true`
+
 ### Key Assignment Logic
 - Single-letter mnemonics (w=windows, s=spaces, a=apps)
 - Consistent with muscle memory from other tools

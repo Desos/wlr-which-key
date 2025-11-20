@@ -1,0 +1,11 @@
+#!/bin/bash
+# Set both brightness and temperature to the same level (0-9)
+
+if [[ ! "$1" =~ ^[0-9]$ ]]; then
+    echo "Usage: $0 [0-9]"
+    exit 1
+fi
+
+# Call both scripts in parallel (independent systems)
+set-brightness "$1" &
+set-temperature "$1" &
