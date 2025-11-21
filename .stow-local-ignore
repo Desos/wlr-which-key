@@ -2,3 +2,4 @@ docs
 .git
 .gitignore
 README.md
+.stow-local-ignore
